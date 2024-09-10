@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My sister's websites</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+
+    <!-- Internal CSS -->
+    <style>
+        h1 {
+            text-align: center;
+            font-family: 'Indie Flower', cursive; /* Apply Google Font to the title */
+        }
+
+        /* Apply the Indie Flower font and set font size for the boxes */
+        .click-box, .flip-box-front, .flip-box-back, .question {
+            font-family: 'Indie Flower', cursive;
+            font-size: 24px;
+        }
+
+        /* Title font styling */
+        .mainTitle {
+            font-size: 36px;
+        }
+
+        /* Font size for 'She works in New York City' */
+        .subTitle {
+            font-size: 20px; /* Smaller font */
+            text-align: center;
+        }
+
+        /* Styling for the container that holds the text and link */
+        .info-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Flexbox to align the first two clickable boxes side by side */
+        .box-container {
+            display: flex;
+            justify-content: center;
+            gap: 60px; /* Adds spacing between the boxes */
+            margin-top: 100px; /* Moves the boxes further down the page */
+        }
+
+        /* Style for the flippable box */
+        .flip-box {
+            perspective: 1000px;
+            width: 300px;
+            height: 150px;
+            cursor: pointer;
+            margin-bottom: 30px; /* Add spacing at the bottom for the third box */
+        }
+
+        .flip-box-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        /* This class will be toggled on click */
+        .flipped {
+            transform: rotateY(180deg);
+        }
+
+        .flip-box-front, .flip-box-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+
+        .flip-box-front {
+            background-color: #3498db; /* Blue color */
+            color: white;
+        }
+
+        .flip-box-back {
+            background-color: #2980b9; /* Darker blue on flip */
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        /* Styling for the question text above the blue boxes */
+        .question {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Flippable box with image and OBVI! text */
+        .flip-box-image-back {
+            position: relative;
+        }
+
+        .flip-box-image-back img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* OBVI! text at the bottom of the image */
+        .obvi-text {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            color: black;
+            font-size: 24px;
+            font-family: 'Indie Flower', cursive;
+            background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent background */
+            padding: 5px;
+        }
+
+        /* Container to hold the third box below */
+        .box-container-vertical {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px; /* Add space between the two rows */
+        }
+    </style>
+</head>
+<body>
+    <h1 class="mainTitle">This is Caroline's website</h1>
+
+    <!-- Container to align both text and call link -->
+    <div class="info-container">
+        <div>
+            <h1 class="subTitle">She works in New York City</h1>
+        </div>
+        <a href="tel:+1234567890">Call her at: +1 (610) 324-7080</a>
+    </div>
+
+    <!-- Box container to align the first two flippable boxes side by side -->
+    <div class="box-container">
+        <!-- First flippable box -->
+        <div>
+            <!-- Question text above the first flippable box -->
+            <div class="question">What do you think her favorite color is?</div>
+
+            <!-- Flippable box with "CLICK HERE TO FIND OUT" and the word "blue" on click -->
+            <div class="flip-box" onclick="toggleFlip()">
+                <div class="flip-box-inner" id="flipBoxInner">
+                    <div class="flip-box-front">
+                        CLICK HERE TO FIND OUT
+                    </div>
+                    <div class="flip-box-back">
+                        BLUE
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Second flippable box -->
+        <div>
+            <!-- Question text above the second flippable box -->
+            <div class="question">What do you think Caroline's favorite animal is?</div>
+
+            <!-- Flippable box with image on the back -->
+            <div class="flip-box" onclick="toggleImageFlip()">
+                <div class="flip-box-inner" id="flipBoxImage">
+                    <div class="flip-box-front">
+                        CLICK HERE TO FIND OUT
+                    </div>
+                    <div class="flip-box-back flip-box-image-back">
+                        <img src="IMG_0601.jpeg" alt="OBVI!"> <!-- Ensure image path is correct -->
+                        <div class="obvi-text">OBVI!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container to hold the third flip box below -->
+    <div class="box-container-vertical">
+        <!-- Third flippable box with image on the back -->
+        <div class="question">Click to see Caroline napping with her dogs!</div>
+        <div class="flip-box" onclick="toggleNapFlip()">
+            <div class="flip-box-inner" id="flipBoxNap">
+                <div class="flip-box-front">
+                    CLICK HERE TO SEE
+                </div>
+                <div class="flip-box-back flip-box-image-back">
+                    <img src="IMG_0769.jpeg" alt="Caroline Napping with Dogs"> <!-- Ensure correct image path -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript to toggle the flip effect -->
+    <script>
+        function toggleFlip() {
+            document.getElementById('flipBoxInner').classList.toggle('flipped');
+        }
+
+        function toggleImageFlip() {
+            document.getElementById('flipBoxImage').classList.toggle('flipped');
+        }
+
+        function toggleNapFlip() {
+            document.getElementById('flipBoxNap').classList.toggle('flipped');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+li {
+    background-color:rgb(6, 35, 75)
+    color= crimson;
+}
+
+body{
+    background-color: rgb(26, 37, 90);
+}
+
+.info-container{
+    background-color: rgb(5, 87, 87);
+}
+
+.mainTitle{
+    /* color: #f50ca3; */
+    font-family: "Indie Flower", cursive;
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+.info-container{
+    background-color: rgb(197, 23, 23);
+    h1{
+        color: rgb(9, 9, 9);
+    }
+}
+
+h1{
+    color: rgb(0, 0, 0);
+
+}
